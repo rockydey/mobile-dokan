@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.card{
+    width: 18rem;
+    margin: 25px auto;
+}
+
 #search-field:focus{
     box-shadow: none;
 }
