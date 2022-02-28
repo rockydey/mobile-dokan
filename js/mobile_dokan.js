@@ -20,20 +20,13 @@ const loadPhoneData = data => {
 };
 
 const displaySearchResult = phones => {
-    if (phones.length == 0) {
+    if (phones.length !== 0) {
         const displayError = document.getElementById('display-error');
         displayError.textContent = '';
-        const div = document.createElement('div');
-        div.innerHTML = `
-            <h1 class="text-danger text-center fw-bold fs-1">Sorry, No Phone Found</h1>
-        `;
-        toggleSpinner('none');
-        displayError.appendChild(div);
-    } else {
-        const displayResult = document.getElementById('display-result');
-        displayResult.textContent = '';
         const displayDetail = document.getElementById('display-detail');
         displayDetail.textContent = '';
+        const displayResult = document.getElementById('display-result');
+        displayResult.textContent = '';
         // console.log(phones);
         phones.forEach(phone => {
             const div = document.createElement('div');
@@ -51,6 +44,17 @@ const displaySearchResult = phones => {
             toggleSpinner('none');
             displayResult.appendChild(div);
         });
+    } else {
+        const displayResult = document.getElementById('display-result');
+        displayResult.textContent = '';
+        const displayDetail = document.getElementById('display-detail');
+        displayDetail.textContent = '';
+        const displayError = document.getElementById('display-error');
+        displayError.textContent = '';
+        displayError.innerHTML = `
+            <h1 class="text-danger text-center fw-bold fs-1">Sorry, No Phone Found</h1>
+        `;
+        toggleSpinner('none');
     }
 };
 
@@ -76,6 +80,7 @@ const displayDetails = detail => {
                 <h6 class="card-text">Chipset: <span class="fw-normal">${detail.mainFeatures.chipSet}</span></h6>
                 <h6 class="card-text">Storage: <span class="fw-normal">${detail.mainFeatures.storage}</span></h6>
                 <h6 class="card-text">Display: <span class="fw-normal">${detail.mainFeatures.displaySize}</span></h6>
+                <h6 class="card-text">Sensors: <span class="fw-normal">${[...detail.mainFeatures.sensors]}</span></h6>            
             </div>
         `;
     } else {
@@ -86,6 +91,7 @@ const displayDetails = detail => {
                 <h6 class="card-text">Chipset: <span class="fw-normal">${detail.mainFeatures.chipSet}</span></h6>
                 <h6 class="card-text">Storage: <span class="fw-normal">${detail.mainFeatures.storage}</span></h6>
                 <h6 class="card-text">Display: <span class="fw-normal">${detail.mainFeatures.displaySize}</span></h6>
+                <h6 class="card-text">Sensors: <span class="fw-normal">${[...detail.mainFeatures.sensors]}</span></h6>
             </div>
         `;
     }
