@@ -10,3 +10,6 @@
 #button-addon2:focus{
     box-shadow: none;
 }
+#toggle-spinner{
+    display: none;
+}
