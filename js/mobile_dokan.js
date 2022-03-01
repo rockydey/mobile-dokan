@@ -81,19 +81,21 @@ const displayDetails = detail => {
     div.innerHTML = `
         <img src="${detail.image}" class="card-img-top w-75 mx-auto mt-2" alt="...">
         <div class="card-body">
-            <h6 class="card-text">Device: <span class="fw-normal">${detail.name}</span></h6>
-            <h6 class="card-title">Release Date: <span class="fw-normal">${detail.releaseDate !== '' ? detail.releaseDate : '<span class="text-danger">Sorry, release date details not available.</span>'}</span></h6>
-            <h6 class="card-text">Chipset: <span class="fw-normal">${detail.mainFeatures.chipSet === undefined ? '<span class="text-danger">Sorry, chipset details not available.</span>' : detail.mainFeatures.chipSet}</span></h6>
-            <h6 class="card-text">Storage: <span class="fw-normal">${detail.mainFeatures.storage}</span></h6>
-            <h6 class="card-text">Memory: <span class="fw-normal">${detail.mainFeatures.memory}</span></h6>
-            <h6 class="card-text">Display: <span class="fw-normal">${detail.mainFeatures.displaySize}</span></h6>
-            <h6 class="card-text">Bluetooth: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.Bluetooth}</span></h6>
-            <h6 class="card-text">GPS: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.GPS}</span></h6>
-            <h6 class="card-text">NFC: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.NFC}</span></h6>
-            <h6 class="card-text">Radio: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.Radio}</span></h6>
-            <h6 class="card-text">USB: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.USB}</span></h6>
-            <h6 class="card-text">WLAN: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.WLAN}</h6>
-            <h6 class="card-text">Sensors: <span class="fw-normal">${detail.mainFeatures.sensors}</span></h6>            
+            <h6 class="card-text fw-bold">Device: <span class="fw-normal">${detail.name}</span></h6>
+            <h6 class="card-title fw-bold">Release Date: <span class="fw-normal">${detail.releaseDate !== '' ? detail.releaseDate : '<span class="text-danger">Sorry, release date details not available.</span>'}</span></h6>
+            <h6 class="card-text fw-bold">Chipset: <span class="fw-normal">${detail.mainFeatures.chipSet === undefined ? '<span class="text-danger">Sorry, chipset details not available.</span>' : detail.mainFeatures.chipSet}</span></h6>
+            <h6 class="card-text fw-bold">Storage: <span class="fw-normal">${detail.mainFeatures.storage}</span></h6>
+            <h6 class="card-text fw-bold">Memory: <span class="fw-normal">${detail.mainFeatures.memory}</span></h6>
+            <h6 class="card-text fw-bold">Display: <span class="fw-normal">${detail.mainFeatures.displaySize}</span></h6>
+            <h6 class="card-text fw-bold">Sensors: <span class="fw-normal">${detail.mainFeatures.sensors}</span></h6> 
+            <div><span class="fw-bold d-inline-block mb-1">Others:</span> 
+                <h6 class="card-text ms-2">Bluetooth: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.Bluetooth}</span></h6>
+                <h6 class="card-text ms-2">GPS: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.GPS}</span></h6>
+                <h6 class="card-text ms-2">NFC: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.NFC}</span></h6>
+                <h6 class="card-text ms-2">Radio: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.Radio}</span></h6>
+                <h6 class="card-text ms-2">USB: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.USB}</span></h6>
+                <h6 class="card-text ms-2">WLAN: <span class="fw-normal">${detail.others === undefined ? '<span class="text-danger">Sorry, details not found.</span>' : detail.others.WLAN}</span></h6>
+            </div>           
         </div>
     `;
     displayDetail.appendChild(div);
