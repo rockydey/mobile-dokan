@@ -1,9 +1,9 @@
-// toggle spinner
+// ==> toggle spinner
 const toggleSpinner = spinnerStyle => {
     document.getElementById('toggle-spinner').style.display = spinnerStyle;
 };
 
-// search button click event
+// ==> search button click event
 const findPhone = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -14,7 +14,7 @@ const findPhone = () => {
     loadPhoneData(searchText);
 };
 
-// load all data according to user search value
+// ==> load all data according to user search value
 const loadPhoneData = data => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${data}`;
     fetch(url)
@@ -22,7 +22,7 @@ const loadPhoneData = data => {
         .then(value => displaySearchResult(value.data));
 };
 
-// display loaded data
+// ==> display loaded data
 const displaySearchResult = phones => {
     if (phones.length !== 0) {
         const displayError = document.getElementById('display-error');
@@ -39,7 +39,7 @@ const displaySearchResult = phones => {
                 <div class="card align-items-center shadow p-3 mb-5 bg-body rounded"">
                     <img src="${phone.image}" class="card-img-top w-50 mt-2" alt="${phone.phone_name}">
                     <div class="card-body d-flex flex-column align-items-center">
-                        <h5 class="card-title">Phone: ${phone.phone_name}</h5>
+                        <h5 class="card-title">Device: ${phone.phone_name}</h5>
                         <p class="card-text fw-bold fs-5">Brand: ${phone.brand}</p>
                         <button onclick="showDetail('${phone.slug}')" class="btn btn-success">Show Details</button>
                     </div>
@@ -62,7 +62,7 @@ const displaySearchResult = phones => {
     }
 };
 
-//load specific phone details
+// ==> load specific phone details
 const showDetail = id => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
@@ -70,7 +70,7 @@ const showDetail = id => {
         .then(value => displayDetails(value.data));
 };
 
-// display phone details
+// ==> display phone details
 const displayDetails = detail => {
     const displayDetail = document.getElementById('display-detail');
     displayDetail.textContent = '';
